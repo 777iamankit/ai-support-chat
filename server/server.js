@@ -22,7 +22,7 @@ app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 
 // MongoDB Atlas Connection
 const MONGODB_URI = 
-                   process.env.MONGODB_ATLAS_URI || 
+                   process.env.MONGODB_ATLAS_URI 
                   //  'mongodb://127.0.0.1:27017/ai-support-chat';
 
 mongoose.connect(MONGODB_URI)
@@ -312,7 +312,9 @@ const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
   console.log(`🚀 Server running on port ${PORT}`);
   console.log(`🤖 Using Groq AI API`);
-  console.log(`🗄️ Database: ${process.env.MONGODB_URI ? 'Atlas' : 'Local'}`);
+  // console.log(`🗄️ Database: ${process.env.MONGODB_URI ? 'Atlas' : 'Local'}`);
+  console.log(`🗄️ Database: ${process.env.MONGODB_ATLAS_URI ? 'Atlas' : 'Local'}`);
+
   console.log(`📊 Check API status: http://localhost:${PORT}/api/status`);
   console.log(`💬 Chat API ready: http://localhost:${PORT}/api/chat`);
 });
