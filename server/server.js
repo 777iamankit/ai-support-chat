@@ -21,9 +21,9 @@ app.use(express.json());
 app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 
 // MongoDB Atlas Connection
-const MONGODB_URI = process.env.MONGODB_URI || 
+const MONGODB_URI = 
                    process.env.MONGODB_ATLAS_URI || 
-                   'mongodb://127.0.0.1:27017/ai-support-chat';
+                  //  'mongodb://127.0.0.1:27017/ai-support-chat';
 
 mongoose.connect(MONGODB_URI)
   .then(() => console.log('✅ MongoDB connected successfully'))
